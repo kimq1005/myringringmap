@@ -25,12 +25,6 @@ class TestFragment : Fragment() {
     ): View? {
         val binding = FragmentTestBinding.inflate(inflater , container , false)
 
-//        TestAdapter = TestAdapter()
-//        binding.myrecyclerView.apply {
-//            adapter = testAdapter
-//            layoutManager = LinearLayoutManager(context)
-//
-//        }
 
 
 
@@ -40,15 +34,7 @@ class TestFragment : Fragment() {
     }
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        fu()
-    }
-
-    private fun fu() {
-
-    }
 
 
 }

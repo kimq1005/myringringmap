@@ -54,15 +54,15 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             }
         }
 
-        binding.dynamicBtn.setOnClickListener {
-            val intent = Intent(this, KaKaoMainActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.firebasebtn.setOnClickListener {
-            val intent = Intent(this, DynamicMainActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.dynamicBtn.setOnClickListener {
+//            val intent = Intent(this, KaKaoMainActivity::class.java)
+//            startActivity(intent)
+//        }
+//
+//        binding.firebasebtn.setOnClickListener {
+//            val intent = Intent(this, DynamicMainActivity::class.java)
+//            startActivity(intent)
+//        }
 
     }
 
@@ -84,25 +84,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         )
     }
 
-    private fun hellomyfriend(view: View) {
-        view.setOnClickListener {
-            Toast.makeText(this, "함수 테스트", Toast.LENGTH_SHORT).show()
-        }
-
-    }
-
-    private fun wow() {
-
-        launch(coroutineContext) {
-            try {
-                withContext(Dispatchers.Main) {
-                    Retrofit_Manager.retrofitManager.callyeah()
-                }
-            } catch (e: Exception) {
-
-            }
-        }
-    }
 
 
 }

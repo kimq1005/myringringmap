@@ -75,6 +75,7 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
                 withContext(Dispatchers.Main) {
                     val latlngBounds = LatLngBounds.Builder()
 
+
                     val call = retrofitInterface.getLibrary()
                     val body = call.body()!!.SeoulPublicLibraryInfo.row
                     val testlist = mutableListOf<TestData>()
@@ -107,7 +108,6 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
                         )
 
 
-
                         latlngBounds.include(position)
                     }
 
@@ -125,11 +125,7 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
 
                         binding.cardView.visibility = View.VISIBLE
                         val selectedModel = viewPagerAdapter.currentList.lastOrNull() {
-
-
                             it.LBRRY_NAME == marker.tag
-
-
 
                         }
                         Log.d(TAG, "태그가져오기: ${marker.tag}")
@@ -154,7 +150,7 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
 //                            mMap.moveCamera(camerawow)
 
                             val selectedlocation = LatLng(X,Y)
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(selectedlocation , 11.0f))
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(selectedlocation , 15.0f))
                             Log.d(TAG, "위도 경도: $X , $Y")
                         }
 
@@ -211,9 +207,26 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+//
+//        val seoul = LatLng(37.5663, 126.9779)
+//
+//        val marker = MarkerOptions()
+//            .position(seoul)
+//            .title("Marker in Seoul")
+//
+//        mMap.addMarker(marker)
+//
+//        var cameraOption = CameraPosition.Builder()
+//            .target(seoul)
+//            .zoom(17f)
+//            .build()
+//
+//        val camera = CameraUpdateFactory.newCameraPosition(cameraOption)
+//
+//        mMap.moveCamera(camera)
 
 
-        yeah(googleMap)
+//        yeah(googleMap)
 
     }
 
