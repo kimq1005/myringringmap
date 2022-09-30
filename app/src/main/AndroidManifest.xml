@@ -23,32 +23,53 @@
         android:theme="@style/Theme.Mymap"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".BarchartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kakaologin.KaKaoLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kakaologin.KakaoLoginResultActivity"
+            android:exported="false" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB6Qnon8ksAwmgRMaaQYX5f6QdnlG1Ajss" />
 
         <activity
             android:name=".ClassProgressActivity"
             android:exported="false" />
         <activity
             android:name=".dynamiclink.DynamicMainActivity"
-            android:exported="false" />
-
-<!--        <activity-->
-<!--            android:name=".dynamiclink.SehemeActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.VIEW" />-->
-
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--                <category android:name="android.intent.category.BROWSABLE" />-->
-
-<!--                <data-->
-<!--                    android:host="testring.com"-->
-<!--                    android:scheme="https" />-->
-<!--                <data-->
-<!--                    android:host="testring.com"-->
-<!--                    android:scheme="http" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".dynamiclink.SehemeActivity" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+        <!-- <data -->
+        <!-- android:host="testring.com" -->
+        <!-- android:scheme="https" /> -->
+        <!-- <data -->
+        <!-- android:host="testring.com" -->
+        <!-- android:scheme="http" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".InviteLinkActivity"
             android:exported="true">
@@ -69,7 +90,20 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="f1c2096c10969aa261655e2933769f2a" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".kakaolink.KaKaoMainActivity"
             android:exported="false">
@@ -82,11 +116,9 @@
                 <!-- "kakao${YOUR_NATIVE_APP_KEY}://kakaolink" 형식의 앱 실행 스킴을 설정하는데 사용 -->
                 <data
                     android:host="kakaolink"
-                    android:scheme="2987a737f843713360586810d1e79cf5" />
+                    android:scheme="f1c2096c10969aa261655e2933769f2a" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".kakaolink.KaKaoResultActivity"
             android:exported="true">
@@ -104,21 +136,6 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
-
-             To get one, follow the directions here:
-
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBgmrgElGoQAZvCXH0LYSYsojGz18sr4kQ" />
-
         <activity
             android:name=".Main_Map"
             android:exported="false"

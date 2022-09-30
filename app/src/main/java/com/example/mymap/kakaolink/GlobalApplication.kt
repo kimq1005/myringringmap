@@ -5,9 +5,15 @@ import com.kakao.sdk.common.KakaoSdk
 
 class GlobalApplication : Application() {
 
+    companion object{
+        var instance : GlobalApplication? = null
+    }
+
+
     override fun onCreate() {
         super.onCreate()
+        instance = this
 
-        KakaoSdk.init(this, "2987a737f843713360586810d1e79cf5")
+        KakaoSdk.init(this, "f1c2096c10969aa261655e2933769f2a")
     }
 }

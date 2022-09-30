@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cardview_dark_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <!-- 로그인 -->
+    <TextView
+        android:id="@+id/nav_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textColor="#000000"
+        android:textSize="16.7sp"
+        android:textStyle="normal"
+
+        app:layout_constraintBottom_toTopOf="@id/nav_mypage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <!-- 홈 아이콘 -->
+    <ImageView
+        android:id="@+id/nav_home"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nav_close"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/nav_login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.14"
+        app:srcCompat="@drawable/kakao_editable_profile" />
+
+
+    <!-- 닫기 아이콘 -->
+    <ImageView
+        android:id="@+id/nav_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/nav_home"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19"
+        app:srcCompat="@drawable/kakao_editable_profile" />
+
+    <!-- 마이페이지 아이콘 -->
+    <TextView
+        android:id="@+id/nav_mypage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="20dp"
+        android:lineSpacingExtra="-6sp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:text="마이페이지"
+        android:drawableStart="@drawable/kakao_editable_profile"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/nav_login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <!-- 주문/배송조회 아이콘 -->
+    <TextView
+        android:id="@+id/nav_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/kakao_editable_profile"
+        android:lineSpacingExtra="-6sp"
+        android:text="주문/배송조회"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/nav_close"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

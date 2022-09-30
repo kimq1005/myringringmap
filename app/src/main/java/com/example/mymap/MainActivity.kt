@@ -1,26 +1,24 @@
 package com.example.mymap
 
 import android.Manifest
-import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.mymap.Url.Companion.TAG
 import com.example.mymap.databinding.ActivityMainBinding
-import com.example.mymap.dynamiclink.DynamicMainActivity
-import com.example.mymap.kakaolink.KaKaoMainActivity
-import com.example.mymap.service.Retrofit_Manager
-import com.google.firebase.dynamiclinks.DynamicLink
-import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
-import kotlinx.coroutines.*
-import retrofit2.Retrofit
+import com.google.android.material.navigation.NavigationView
+import com.kakao.sdk.common.util.Utility
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
+
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
 
@@ -39,6 +37,9 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         mainbinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val keyHash = Utility.getKeyHash(this)
+        Log.d(TAG, "onCreate: $keyHash")
+
         job = Job()
 
 
@@ -47,22 +48,29 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.framlayout, TestFragment())
                     .commit()
+                binding.btnf.background = ContextCompat.getDrawable(this, R.color.black)
             } else {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.framlayout, MapsActivity())
                     .commit()
+
+                binding.btnf.background = ContextCompat.getDrawable(this, R.color.white)
             }
         }
 
-//        binding.dynamicBtn.setOnClickListener {
-//            val intent = Intent(this, KaKaoMainActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        binding.firebasebtn.setOnClickListener {
-//            val intent = Intent(this, DynamicMainActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.gogobtn.setOnClickListener {
+            val intent = Intent(this, BarchartActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.testman.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
+
+
 
     }
 
@@ -83,6 +91,11 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             34
         )
     }
+
+    private fun wow(){
+
+    }
+
 
 
 

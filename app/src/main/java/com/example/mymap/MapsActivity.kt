@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.mymap.Url.Companion.TAG
 import com.example.mymap.adapter.TestAdapter
@@ -41,6 +42,8 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
 
     private lateinit var viewPagerAdapter:ViewPagerAdapter
 
+    lateinit var marker_root_view :View
+    lateinit var tv_marker : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -88,6 +91,8 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
 
                         val title = body.get(i).LBRRY_NAME
                         val anydata = body.get(i).ADRES
+
+                        Log.d(TAG, "yeah: $xcnts")
                         val position = LatLng(xcnts, ydnts)
 
                         testlist.add(TestData(title,anydata))
@@ -96,7 +101,6 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
                         binding.myviewpager.apply {
                             adapter = viewPagerAdapter
                             viewPagerAdapter.submitList(body)
-
                         }
 
 
@@ -207,27 +211,40 @@ class MapsActivity : Fragment(), OnMapReadyCallback, CoroutineScope {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-//
-//        val seoul = LatLng(37.5663, 126.9779)
-//
-//        val marker = MarkerOptions()
-//            .position(seoul)
-//            .title("Marker in Seoul")
-//
-//        mMap.addMarker(marker)
-//
-//        var cameraOption = CameraPosition.Builder()
-//            .target(seoul)
-//            .zoom(17f)
-//            .build()
-//
-//        val camera = CameraUpdateFactory.newCameraPosition(cameraOption)
-//
-//        mMap.moveCamera(camera)
+
+//        setCustomMarkerView()
+//        getSampleMarkerItems()
+
+        yeah(googleMap)
+
+    }
 
 
-//        yeah(googleMap)
+    ////////////////////////////////
 
+
+    private fun getSampleMarkerItems(){
+        val latlngdata = arrayListOf<LatLngData>()
+
+        latlngdata.add(LatLngData(1, LatLng(35.162339, 129.108509), "가"))
+        latlngdata.add(LatLngData(2, LatLng(35.224836, 129.088285), "나"))
+        latlngdata.add(LatLngData(3, LatLng(35.080117, 129.048376), "다"))
+
+        for(i in latlngdata.indices){
+            addMarker(latlngdata[i])
+        }
+    }
+
+    private fun setCustomMarkerView(){
+        marker_root_view = LayoutInflater.from(context).inflate(R.layout.marker_layout,null)
+        tv_marker = marker_root_view.findViewById(R.id.tag_marker) as TextView
+    }
+
+    private fun addMarker(latLngData: LatLngData):Marker?{
+        var markerOption = MarkerOptions()
+        markerOption.position(latLngData.latlng).title("asdasd")
+        tv_marker.setText(latLngData.tag)
+        return mMap.addMarker(markerOption)
     }
 
 
